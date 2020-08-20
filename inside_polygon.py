@@ -9,26 +9,36 @@ def isinside(x1,y1,x2,y2,x3,y3,x,y):
     return (a==a1+a2+a3)
 
 if __name__=="__main__":
-    #case 2
-    # cordinator=[[-3,2],[-2,-0.8],[0,1.2],[2.2,0],[2,4.5]]
-    # point=[0,0]
-    #case 1
-    cordinator=[[1,0],[8,3],[8,8],[1,5]]
-    point=[3,5]
+    
+    l=input().split(" ")
+n=len(l)
+cordinator=[]
+k=0
+for i in range(0,int(n/2)):
+    a=[]
+    for j in range(0,2):
+        a.append(float(l[k]))
+        k=k+1
+    cordinator.append(a)
 
-    count=0
+x,y=input().split(" ")
+point=[]
+point.append(int(x))
+point.append(int(y))
+
+count=0
    
-    for i in range(1,len(cordinator)-1):
-        x1=cordinator[0][0]
-        y1=cordinator[0][1]
-        x2=cordinator[i][0]
-        y2=cordinator[i][1]
-        x3=cordinator[i+1][0]
-        y3=cordinator[i+1][1]
-        x=point[0]
-        y=point[1]
-        if isinside(x1,y1,x2,y2,x3,y3,x,y):
-            count=count+1
+for i in range(1,len(cordinator)-1):
+    x1=cordinator[0][0]
+    y1=cordinator[0][1]
+    x2=cordinator[i][0]
+    y2=cordinator[i][1]
+    x3=cordinator[i+1][0]
+    y3=cordinator[i+1][1]
+    x=point[0]
+    y=point[1]
+    if isinside(x1,y1,x2,y2,x3,y3,x,y):
+        count=count+1
 if count % 2 == 0:
     print(False)
 else:
